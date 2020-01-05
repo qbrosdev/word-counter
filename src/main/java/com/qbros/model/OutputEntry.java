@@ -9,6 +9,11 @@ public class OutputEntry {
 
     private String word;
     private Long total;
+    /**
+     * the massage is a concatnated String of of the counts of an specific word in each file.
+     * <occurrences in file1> + <occurrences in file2> + ... + <occurrences in file n>
+     * The counts are ordered according to alphabetical order of the name of the containing file
+     */
     private String message;
 
     public OutputEntry(String word, Long total, String message) {

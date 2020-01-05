@@ -130,7 +130,7 @@ public class Coordinator {
      * into a {@link OutputEntry} object
      *
      * @param entry
-     * @return OutputEntry
+     * @return OutputEntry the {@link OutputEntry#message}
      */
     private OutputEntry getOutputEntry(Map.Entry<String, List<ResultEntry>> entry) {
         String word = entry.getKey();
