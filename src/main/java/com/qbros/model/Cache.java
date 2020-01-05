@@ -19,7 +19,7 @@ public class Cache {
         fileCounts.add(resultEntry);
     }
 
-    public List<ResultEntry> getCashEntries() {
+    public List<ResultEntry> getEntries() {
         return new ArrayList<>(fileCounts);
     }
 }

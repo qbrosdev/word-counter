@@ -13,7 +13,8 @@ import java.util.stream.Stream;
  */
 public abstract class InputReader {
 
-    protected final String FILE_OPEN_ERR_MSG = "Error in opening the file";
+    private final static Pattern wordPattern = Pattern.compile("\\w+");
+    protected final static String FILE_OPEN_ERR_MSG = "Error in opening the file";
 
     /**
      * Path to the source file, form which we extract words
@@ -24,7 +25,6 @@ public abstract class InputReader {
      */
     protected boolean isStrict;
 
-    private final static Pattern pattern = Pattern.compile("\\w+");
 
     abstract Stream<String> getWordsStream();
 
@@ -32,7 +32,7 @@ public abstract class InputReader {
 
     protected boolean isWord(String input) {
         if (isStrict) {
-            return pattern.matcher(input).matches();
+            return wordPattern.matcher(input).matches();
         } else {
             return input.length() > 0;
         }

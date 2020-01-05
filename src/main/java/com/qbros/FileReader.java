@@ -18,6 +18,8 @@ import static com.qbros.utils.ExceptionUtil.handleException;
 
 public class FileReader extends InputReader {
 
+    private final String SPACE_BETWEEN_WORDS_REGEX = "\\s+";
+
     public FileReader(Path sourceFilePath, boolean isStrict) {
 
         this.sourceFilePath = sourceFilePath;
@@ -29,7 +31,7 @@ public class FileReader extends InputReader {
 
         return extractLines().stream()
                 .map(String::trim)
-                .flatMap(trimmedLine -> Stream.of(trimmedLine.split("\\s+")))
+                .flatMap(trimmedLine -> Stream.of(trimmedLine.split(SPACE_BETWEEN_WORDS_REGEX)))
                 .parallel()
                 .filter(this::isWord);
     }

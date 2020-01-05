@@ -75,7 +75,7 @@ public class ContextManager {
      * via command line
      * @param args command line args
      * @param options command line options
-     * @throws ParseException
+     * @throws ParseException exception while parsing command line input
      */
     private static void initContextFromCommandLine(String[] args, Options options) throws ParseException {
         CommandLineParser parser = new DefaultParser();

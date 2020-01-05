@@ -68,7 +68,7 @@ public class Coordinator {
     }
 
     /**
-     * This method reads all the {@link Cache#getCashEntries()}.
+     * This method reads all the {@link Cache#getEntries()}.
      * Then groups them by word. the the grouped result is converted to {@link OutputEntry} object.
      * Then the converted objects are (reverse)sorted by the total value {@link OutputEntry#getTotal()}
      * and then by alphabetical order of the word {@link OutputEntry#getWord()} and finally the result is
@@ -78,7 +78,7 @@ public class Coordinator {
         Logger.logDebug("Counting finished");
         Logger.logTime("Printing cache took ", () -> {
 
-            Map<String, List<ResultEntry>> resultsGroupedByWord = cache.getCashEntries()
+            Map<String, List<ResultEntry>> resultsGroupedByWord = cache.getEntries()
                     .stream()
                     .collect(groupingBy(ResultEntry::getWord));
 
