@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 import static com.qbros.utils.ExceptionUtil.handleException;
 
-
 public class FileUtils {
 
     private final static String FIND_FILES_ERR_MSG = "error in finding the required file types with extension:";
@@ -23,7 +22,7 @@ public class FileUtils {
     public static List<Path> extractFilePathsFrom(String rootPathString, String fileExtension) {
         try {
             Path rootPath = FileSystems.getDefault().getPath(rootPathString);
-            return Files.walk(rootPath)
+            return Files.walk(rootPath, 1)
                     .filter(s -> s.toString().endsWith(fileExtension))
                     .collect(Collectors.toList());
         } catch (IOException e) {
